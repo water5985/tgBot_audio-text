@@ -1,0 +1,63 @@
+# Internal project notes
+/docs/
+/tests/
+/CHAT_CONTEXT.md
+/DEVELOPMENT_PLAN.md
+/AGENTS.md
+/.agents/
+/.codex/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials/
+secrets/
+config.local.*
+
+# User content and runtime output (never use real recordings as fixtures)
+private/
+recordings/
+transcripts/
+logs/
+tmp/
+*.ogg
+*.oga
+*.opus
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+*.webm
+*.log
+*.sqlite*
+*.db
+
+# Downloaded speech models
+models/
+*.bin
+*.gguf
+
+# Python environments, caches, and build output
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
