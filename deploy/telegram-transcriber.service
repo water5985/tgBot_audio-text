@@ -1,0 +1,34 @@
+[Unit]
+Description=Telegram voice transcription bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+User=voicebot
+Group=voicebot
+WorkingDirectory=/opt/telegram-transcriber
+EnvironmentFile=/etc/telegram-transcriber.env
+ExecStartPre=/usr/bin/env AUDIO_SANDBOX=true /opt/telegram-transcriber/.venv/bin/python /opt/telegram-transcriber/verify_isolation.py
+ExecStart=/usr/bin/env AUDIO_SANDBOX=true WHISPER_MODEL=/var/lib/voice-models/medium.bin /opt/telegram-transcriber/.venv/bin/python /opt/telegram-transcriber/bot.py
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGINT
+KillMode=mixed
+TimeoutStopSec=15000
+UMask=0077
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+NoNewPrivileges=true
+CapabilityBoundingSet=
+RestrictSUIDSGID=true
+ProtectKernelTunables=false
+ProtectKernelModules=true
+ProtectControlGroups=true
+MemoryMax=5G
+TasksMax=128
+LimitCORE=0
+
+[Install]
+WantedBy=multi-user.target

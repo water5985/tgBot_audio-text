@@ -24,7 +24,7 @@ def main() -> int:
     asyncio.set_event_loop(asyncio.new_event_loop())
     try:
         application = build_application(settings)
-        application.run_polling(allowed_updates=["message"], bootstrap_retries=0)
+        application.run_polling(allowed_updates=["message", "callback_query"], bootstrap_retries=0)
     except (TelegramError, OSError):
         print("Could not run the bot. Check BOT_TOKEN and the network connection.", file=sys.stderr)
         return 1

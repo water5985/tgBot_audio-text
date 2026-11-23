@@ -1,0 +1,4 @@
+# Install in the dedicated translation runtime, not the bot environment.
+ctranslate2==4.6.0
+transformers==4.51.3
+sentencepiece==0.2.0
